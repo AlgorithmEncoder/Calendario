@@ -1,0 +1,183 @@
+/* Resetear los márgenes y el padding del cuerpo de la página */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #eee;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+}
+
+/* Estilos para el encabezado */
+header {
+  grid-area: header;
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* Estilos para el menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;s
+}
+
+.dropbtn:hover {
+  transition-property: background-color,color;
+  transition-duration: 1.5s;
+  background-color: #666;
+  color: #e64;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 1;
+  opacity: 0; /* Establece la opacidad inicial en 0 */
+  transform: translateY(-20px); /* Mueve el menú hacia arriba un poco */
+  transition: opacity 0.3s, transform 0.3s; /* Agrega transiciones para opacidad y posición */
+  animation: fadeInDown 0.5s forwards; /* Aplica la animación de desvanecimiento */
+}
+
+/* Define la animación keyframe */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Añade una clase al menú cuando esté visible */
+.dropdown-content.show {
+  opacity: 1; /* Cambia la opacidad al mostrar */
+  transform: translateY(0); /* Vuelve a la posición original */
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #444;
+  color: #e36543;
+  transition-property: background-color,color;
+  transition-duration: 1s;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover {
+  color: #66ccff;
+}
+
+
+
+/* Estilos para el pie de página */
+footer {
+  grid-area: footer;
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Letras claras */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  margin: 0; /* Elimina el margen por defecto del párrafo */
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+
+}
+
+footer ul li {
+  margin: 0; /* Elimina el margen por defecto de los elementos de la lista */
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+  color: #66ccff; /* Color de resaltado al pasar el mouse */
+}
+
+footer ul li img {
+  max-width: 40px;
+  height: auto;
+}
+
+/* Estilos para el párrafo de Copyright */
+footer p {
+  font-size: 11px;
+  text-align: center;
+  width: 40%;
+  color: #ddd;
+}
+
+footer p p {
+  font-size: 10px;
+}
+
+footer b i a {
+  color: #fff;
+}
+
+
+
+
+main {
+  grid-area: main;
+  min-height: auto;
+  background-image: url(../imagenes/bike-background-vertical.jpg);
+  background-size: cover;
+}
