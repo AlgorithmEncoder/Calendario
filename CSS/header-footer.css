@@ -180,4 +180,5 @@ main {
   min-height: auto;
   background-image: url(../imagenes/bike-background-vertical.jpg);
   background-size: cover;
+  background-color: #666;
 }
