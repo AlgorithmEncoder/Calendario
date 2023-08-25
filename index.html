@@ -4,6 +4,7 @@
   <title>Calendario</title>
   <link rel="stylesheet" type="text/css" href="CSS/header-footer.css">
   <link rel="stylesheet" type="text/css" href="CSS/calendario.css">
+  <link rel="stylesheet" type="text/css" href="CSS/event-section.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -23,12 +24,20 @@
   </header>
 
   <main>
-    <h1>Calendario</h1>
-    <div id="calendar-container">
+    <h1>Calendario personal</h1>
+      <div id="calendar-container">
+        <div class="calendar-nav">
+          <button class="prev-month-btn" id="prev-month-btn">&larr;</button>
+          <div class="calendar-month-year" id="calendar-month-year">Mes Año</div>
+          <button class="next-month-btn" id="next-month-btn">&rarr;</button>
+        </div>
+    
       <table id="calendar"></table>
     </div>
     <div id="event-section">
+      <span class="arrow" id="prev-arrow">&larr;</span>
       <h2 id="event-section-title">Eventos para el día XX de Mes Año</h2>
+      <span class="arrow" id="next-arrow">&larr;</span>
       <ul id="event-list" class="event-list">
         <!-- Lista de eventos -->
       </ul>

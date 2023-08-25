@@ -1,10 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
   const calendarContainer = document.getElementById("calendar");
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
+  let currentDate = new Date();
+  let currentMonth = currentDate.getMonth();
+  let currentYear = currentDate.getFullYear();
 
   renderCalendar(currentMonth, currentYear);
+
+  const prevMonthBtn = document.getElementById("prev-month-btn");
+  const nextMonthBtn = document.getElementById("next-month-btn");
+  const calendarMonthYear = document.getElementById("calendar-month-year");
+
+  prevMonthBtn.addEventListener("click", function () {
+    currentMonth -= 1;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear -= 1;
+    }
+    renderCalendar(currentMonth, currentYear);
+    const selectedDate = new Date(currentYear, currentMonth, 1);
+    showEventSection(selectedDate);
+    updateCalendarHeader(currentMonth, currentYear);
+  });
+
+  nextMonthBtn.addEventListener("click", function () {
+    currentMonth += 1;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear += 1;
+    }
+    renderCalendar(currentMonth, currentYear);
+    const selectedDate = new Date(currentYear, currentMonth, 1);
+    showEventSection(selectedDate);
+    updateCalendarHeader(currentMonth, currentYear);
+  });
+
+
 
   function renderCalendar(month, year) {
     const firstDay = new Date(year, month, 1);
@@ -30,12 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const dayCell = document.createElement("td");
         if (i === 0 && j < firstDay.getDay()) {
           dayCell.textContent = "";
-        } else if (date > lastDay.getDate()) {
+        }
+        else if (date > lastDay.getDate()) {
           break;
-        } else {
+        }
+        else {
           dayCell.textContent = date;
           date++;
         }
+
+        dayCell.addEventListener("click", function () {
+          const clickedDate = new Date(year, month, parseInt(this.textContent));
+          showEventSection(clickedDate);
+        });
+
         weekRow.appendChild(dayCell);
       }
       calendarContainer.appendChild(weekRow);
@@ -92,6 +130,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     return filteredEvents;
-}
-showEventSection(new Date())
+  }
+
+  function updateCalendarHeader(month, year) {
+    calendarMonthYear.textContent = getMonthName(month) + " " + year;
+  }
+
+  function getMonthName(month) {
+    const monthNames = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    return monthNames[month];
+  }
+  showEventSection(new Date());
+  updateCalendarHeader(currentMonth, currentYear);
 });

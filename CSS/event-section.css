@@ -1,0 +1,40 @@
+#event-section {
+  display: none;
+  margin-top: 20px;
+  background-color: #f39c12;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  animation: fadeInUp 1s ease-in-out; /* Animación de aparición */
+}
+
+#event-section-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.event-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.event-list-item {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.btn-events {
+  display: block;
+  cursor: pointer;
+  background-color: #333;
+  color: #ecf0f1;
+  border: 2px solid #3498db;
+  transition: background-color 0.3s, color 0.3s, border 0.3s, transform 0.3s;
+}
+
+.btn-events:hover {
+  background-color: #3498db;
+  transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
