@@ -178,7 +178,8 @@ footer b i a {
 main {
   grid-area: main;
   min-height: auto;
-  background-image: url(../imagenes/bike-background-vertical.jpg);
-  background-size: cover;
+  /*background-image: url(../imagenes/bike-background-vertical.jpg);*/
+  /*background-size: cover;*/
   background-color: #666;
+  padding: 20px;
 }

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const calendarContainer = document.getElementById("calendar-container");
+  const calendarContainer = document.getElementById("calendar");
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
