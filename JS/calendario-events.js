@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     calendarContainer.innerHTML = ''; // Limpia el contenido previo
 
     // Crea el encabezado de los días de la semana
-    const daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    const daysOfWeek = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
     const weekHeader = document.createElement('tr');
     daysOfWeek.forEach(day => {
       const th = document.createElement('th');
