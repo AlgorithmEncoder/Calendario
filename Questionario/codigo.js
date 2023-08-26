@@ -46,6 +46,7 @@ function cargarForm(){
 
 function endForm(){
 	let d = getDateFromStorage()
+	console.log(d)
 	let event = {
 		tipe: data[0],
 		remind: data[data.length-1],
@@ -161,20 +162,16 @@ function lastQuestion(){
 function addEventToStorage(event){
     let storedEventList = localStorage.getItem("eventList");
     let eventList = storedEventList ? JSON.parse(storedEventList) : [];
-
-    eventList.forEach(function(event){
-      event.date = new Date(event.date);
-    });
-
+    
     eventList.push(event)
     localStorage.setItem("eventList", JSON.stringify(eventList));
 }
 
 function getDateFromStorage(){
 	let storedDate = localStorage.getItem("eventDate");
-  let date = storedDate ? new Date(storedDate) : [];
-  let hour = date.toISOString().split('T')[1];
-  date = date.toISOString().split('T')[0];
+  let cDate = storedDate ? new Date(storedDate) : [];
+  let hour = cDate.toISOString().split('T')[1];
+  let date = cDate.toISOString().split('T')[0];
   return [date,hour]
 }
 
