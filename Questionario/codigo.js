@@ -45,11 +45,13 @@ function cargarForm(){
 }
 
 function endForm(){
+	let d = getDateFromStorage()
 	let event = {
 		tipe: data[0],
 		remind: data[data.length-1],
 		extra: data[data.length-2],
-		date: getDateFromStorage(),
+		date: d[0],
+		hour: d[1],
 		time: data[1]
 	}
 
@@ -79,7 +81,7 @@ function endForm(){
 	}
 	else if(data[0] == 'Cumpleaños'){
 		event.cumpleañero = data[2];
-		event.event = `Cumpleaños de ${event.subject}`;
+		event.event = `Cumpleaños de ${event.cumpleañero}`;
 	}
 	else if(data[0] == 'Otro'){
 		event.name = data[2];
@@ -169,9 +171,11 @@ function addEventToStorage(event){
 }
 
 function getDateFromStorage(){
-	let storedDate = localStorage.getItem("date");
-    let date = storedDate ? JSON.parse(storedDate) : [];
-    return date
+	let storedDate = localStorage.getItem("eventDate");
+  let date = storedDate ? new Date(storedDate) : [];
+  let hour = date.toISOString().split('T')[1];
+  date = date.toISOString().split('T')[0];
+  return [date,hour]
 }
 
 let question = document.querySelector('.question');
