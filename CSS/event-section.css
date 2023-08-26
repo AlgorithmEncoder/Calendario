@@ -18,6 +18,11 @@
   list-style-type: none;
   padding: 0;
   margin-bottom: 10px;
+  border: solid 2px #333;
+  padding-left: 10px;
+  padding-top: 10px;
+  overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido supera la altura máxima */
+  max-height: 20vh;
 }
 
 .event-list-item {

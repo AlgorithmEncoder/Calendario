@@ -116,8 +116,9 @@ document.addEventListener('DOMContentLoaded', function (){
       eventList.appendChild(listItem);
    }
 
-    // Mostrar la sección de eventos
-    eventSection.style.display = 'block';
+    // Mostrar la sección de eventos y asegurarse de que el scroll se muestre en la sección
+    eventSection.style.display = "block";
+    eventList.scrollTop = 0;
  }
 
 
