@@ -84,8 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function showEventSection(date) {
 
     let events = getEvents(date);
-    console.log(events)
-    console.log(date.toISOString())
 
     const eventSection = document.getElementById('event-section');
     const eventTitle = document.getElementById('event-section-title');
