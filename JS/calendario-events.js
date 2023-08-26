@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function (){
    }
     else{
       const listItem = document.createElement('li');
+      eventList.style.border = 'None'
       listItem.textContent = 'No hay eventos programados para este día.';
       eventList.appendChild(listItem);
    }

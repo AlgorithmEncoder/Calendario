@@ -31,15 +31,17 @@
 }
 
 .btn-events {
-  display: block;
+  background-color: #ddd;
+  color: #333;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  background-color: #333;
-  color: #ecf0f1;
-  border: 2px solid #3498db;
-  transition: background-color 0.3s, color 0.3s, border 0.3s, transform 0.3s;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
 }
 
 .btn-events:hover {
-  background-color: #3498db;
+  background-color: #ddd;
   transform: scale(1.05); /* Efecto de escala al pasar el cursor */
 }
