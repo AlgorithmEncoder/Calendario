@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formulario de evento</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+	<h1>Formulario de evento</h1>
+	<div class="btn-comienzo" onclick="cargarForm()"><h2>Empezar formulario</h2></div>
+	<div class="container" hidden>
+		<label class="question">¿Qué clase de evento deseas registrar?</label>
+		<div class="answer-camp">
+			<div class="option-left">
+				<a class="answer">Opción</a>
+			</div>
+			<div class="option-right"><a>v</a></div>
+			<div class="dropdown-content">
+				<div id="op1">Deberes</div>
+				<div id="op2">Examen</div>
+				<div id="op3">Proyecto</div>
+				<div id="op4">Viaje</div>
+				<div id="op5">Cumpleaños</div>
+				<div id="op6">Otro</div>
+			</div>
+		</div>
+		<div class="answer answer-camp" hidden>
+			<input type="number" class="num1" max="23" min="0">
+			:
+			<input type="number" class="num2" max="59" min="0">
+		</div>
+		<input type="text" class="answer answer-camp" hidden>
+		<div class="button-area">
+			<button class="option-left" onclick="lastQuestion()">Anterior</button>
+			<button class="option-right" onclick="nextQuestion()">Siguiente</button>
+		</div>
+	</div>
+	<script src="codigo.js"></script>
+</body>
+</html>
