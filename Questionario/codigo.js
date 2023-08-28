@@ -9,37 +9,48 @@ function cargarForm(){
 	let op1 = document.getElementById('op1')
 	op1.addEventListener('click',()=>{
 		answer.innerHTML = op1.innerHTML;
-		// dropdownContent.style.display = 'none';
 	})
-
 	let op2 = document.getElementById('op2')
 	op2.addEventListener('click',()=>{
 		answer.innerHTML = op2.innerHTML;
-		// dropdownContent.style.display = 'none';
 	})
-
 	let op3 = document.getElementById('op3')
 	op3.addEventListener('click',()=>{
 		answer.innerHTML = op3.innerHTML;
-		// dropdownContent.style.display = 'none';
 	})
-
 	let op4 = document.getElementById('op4')
 	op4.addEventListener('click',()=>{
 		answer.innerHTML = op4.innerHTML;
-		// dropdownContent.style.display = 'none';
 	})
-
 	let op5 = document.getElementById('op5')
 	op5.addEventListener('click',()=>{
 		answer.innerHTML = op5.innerHTML;
-		// dropdownContent.style.display = 'none';
 	})
-
 	let op6 = document.getElementById('op6')
 	op6.addEventListener('click',()=>{
 		answer.innerHTML = op6.innerHTML;
-		// dropdownContent.style.display = 'none';
+	})
+
+
+	let op1R = document.getElementById('op1_remind')
+	op1R.addEventListener('click',()=>{
+		answer.innerHTML = op1R.innerHTML;
+	})
+	let op2R = document.getElementById('op2_remind')
+	op2R.addEventListener('click',()=>{
+		answer.innerHTML = op2R.innerHTML;
+	})
+	let op3R = document.getElementById('op3_remind')
+	op3R.addEventListener('click',()=>{
+		answer.innerHTML = op3R.innerHTML;
+	})
+	let op4R = document.getElementById('op4_remind')
+	op4R.addEventListener('click',()=>{
+		answer.innerHTML = op4R.innerHTML;
+	})
+	let op5R = document.getElementById('op5_remind')
+	op5R.addEventListener('click',()=>{
+		answer.innerHTML = op5R.innerHTML;
 	})
 }
 
@@ -136,9 +147,13 @@ function nextQuestion(){
 		question.innerHTML = comunQuestions[1];
 		answer.value = '';
 		document.querySelector('.btn-right').innerHTML = 'Enviar';
+
+		document.querySelector('.answer-camp-remind').style.display = 'block';
+		answer.style.display = 'none';
+		answer = document.querySelector('.answer-remind');
 	}
 	else if(question.innerHTML == comunQuestions[1]){
-		data.push(answer.value);
+		data.push(answer.innerHTML);
 		endForm()
 	}
 
@@ -193,6 +208,9 @@ function lastQuestion(){
 
 	else if(question.innerHTML == comunQuestions[1]){
 		question.innerHTML = comunQuestions[0];
+		document.querySelector('.answer-camp-remind').style.display = 'none';
+		answer = document.querySelectorAll('.answer')[2];
+		answer.style.display = 'block';
 		answer.value = data[data.length-1];
 		data.pop();
 		document.querySelector('.btn-right').innerHTML = 'Siguiente';

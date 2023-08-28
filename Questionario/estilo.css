@@ -233,3 +233,30 @@ a:hover {
 	margin-top: auto;
 	margin-bottom: auto;
 }
+
+
+
+
+.answer-camp-remind:hover .dropdown-content {
+  display: block;
+}
+
+.answer-camp-remind {
+	border: 2px solid #2980b9; /* Cambio de color del borde */
+	background-color: #ecf0f1; /* Cambio de color de fondo */
+	position: relative;
+}
+
+.dropdown-content div {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  background-color: #aaa;
+  padding: 10px;
+}
+
+.dropdown-content div:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
