@@ -94,6 +94,7 @@ h1 {
 .button-area {
 	margin-top: 10px;
 	padding: 10px;
+	display: flex;
 }
 
 .button-area button {
@@ -137,8 +138,10 @@ input[type="text"]:focus {
 
 /* Agrega una animación de "pulsar" a los botones */
 .button-area button {
+	font-size: 12px;
   transition: background-color 0.3s, transform 0.3s;
 }
+
 .button-area button:hover {
   background-color: #3a8;
   transform: scale(1.05);
@@ -189,6 +192,11 @@ input[type="text"]:focus {
   transition: width 0.3s;
 }
 
+.answer {
+	justify-content: space-around;
+}
+
+
 /* Agrega un estilo de resaltado al pasar el cursor sobre las opciones */
 .option-left:hover, .option-right:hover {
   background-color: #4c9;
@@ -203,10 +211,10 @@ input[type="text"]:focus {
 
 /* Estiliza la respuesta numérica */
 .num1, .num2 {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   border: 2px solid #097;
 }
 

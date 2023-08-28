@@ -103,7 +103,7 @@ function nextQuestion(){
 		data.push(answer.innerHTML);
 		answerCamp.style.display = 'none';
 		answer = document.querySelectorAll('.answer')[1];
-		answer.style.display = 'block';
+		answer.style.display = 'flex';
 	}
 
 	else if(question.innerHTML == '¿A que hora es el evento?'){
@@ -128,6 +128,8 @@ function nextQuestion(){
 		data.push(answer.value);
 		question.innerHTML = comunQuestions[1];
 		answer.value = '';
+		let btnNext = document.querySelector('.btn-right');
+		btnNext.innerHTML = 'Enviar';
 	}
 	else if(question.innerHTML == comunQuestions[1]){
 		data.push(answer.value);
