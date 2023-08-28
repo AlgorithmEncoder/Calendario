@@ -110,8 +110,13 @@ function nextQuestion(){
 		let A = document.querySelector('.num1').value;
 		let B = document.querySelector('.num2').value;
 		data.push(`${A}:${B}`);
-		// else alert('Debes introducir la hora y los minutos en el siguiente formato: xx:xx');
 
+		if(parseInt(A) < 24 && parseInt(B) < 60) console.log('Hora correcta')
+		else{
+			alert('Debes introducir la hora y los minutos en el siguiente formato: xx:xx');
+			return
+		}
+		
 		if(data[0] == 'Deberes') question.innerHTML = homeworkQuestions[0];
 		else if(data[0] == 'Examen') question.innerHTML = examQuestions[0];
 		else if(data[0] == 'Proyecto') question.innerHTML = projectQuestions[0];
@@ -125,7 +130,9 @@ function nextQuestion(){
 	}
 
 	else if(question.innerHTML == comunQuestions[0]){
+		if(!answer.value) answer.value = 'Ninguna';
 		data.push(answer.value);
+		console.log(data)
 		question.innerHTML = comunQuestions[1];
 		answer.value = '';
 		document.querySelector('.btn-right').innerHTML = 'Enviar';
@@ -213,7 +220,6 @@ function lastQuestion(){
 		});
 	}
 }
-
 
 function addEventToStorage(event){
     let storedEventList = localStorage.getItem("eventList");
