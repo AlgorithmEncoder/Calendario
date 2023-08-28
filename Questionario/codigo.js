@@ -1,5 +1,4 @@
 window.addEventListener('keypress',(event)=>{
-	console.log(event)
 	if(event.key == 'Enter') nextQuestion();
 })
 
@@ -98,12 +97,13 @@ function nextQuestion(){
 		alert('Debes elegir una opción');
 	}
 
-	else if(answer.innerHTML == 'Deberes' || answer.innerHTML == 'Examen' || answer.innerHTML == 'Proyecto' || answer.innerHTML == 'Viaje' || answer.innerHTML == 'Cumpleaños' || answer.innerHTML == 'Otro'){
+	else if(question.innerHTML == '¿Qué clase de evento deseas registrar?'){
 		question.innerHTML = '¿A que hora es el evento?';
 		data.push(answer.innerHTML);
 		answerCamp.style.display = 'none';
 		answer = document.querySelectorAll('.answer')[1];
 		answer.style.display = 'flex';
+		document.querySelector('.btn-left').innerHTML = 'Anterior';
 	}
 
 	else if(question.innerHTML == '¿A que hora es el evento?'){
@@ -121,15 +121,14 @@ function nextQuestion(){
 
 		answer.style.display = 'none';
 		answer = document.querySelectorAll('.answer')[2];
-	    answer.style.display = 'block';
+	  answer.style.display = 'block';
 	}
 
 	else if(question.innerHTML == comunQuestions[0]){
 		data.push(answer.value);
 		question.innerHTML = comunQuestions[1];
 		answer.value = '';
-		let btnNext = document.querySelector('.btn-right');
-		btnNext.innerHTML = 'Enviar';
+		document.querySelector('.btn-right').innerHTML = 'Enviar';
 	}
 	else if(question.innerHTML == comunQuestions[1]){
 		data.push(answer.value);
@@ -159,7 +158,62 @@ function nextQuestion(){
 }
 
 function lastQuestion(){
+
+	if(question.innerHTML == '¿Qué clase de evento deseas registrar?'){
+		close('index.html');
+	}
+
+	else if(question.innerHTML == '¿A que hora es el evento?'){
+		answer.style.display = 'none';
+		answer = document.querySelectorAll('.answer')[0];
+		answerCamp.style.display = 'block';
+		answer.innerHTML = data[0];
+		question.innerHTML = '¿Qué clase de evento deseas registrar?'
+		data.pop();
+		document.querySelector('.btn-left').innerHTML = 'Salir';
+	}
+
+	else if(question.innerHTML == comunQuestions[0]){
+		if(data[0] == 'Deberes') question.innerHTML = homeworkQuestions[homeworkQuestions.length-1];
+		else if(data[0] == 'Examen') question.innerHTML = examQuestions[examQuestions.length-1];
+		else if(data[0] == 'Proyecto') question.innerHTML = projectQuestions[projectQuestions.length-1];
+		else if(data[0] == 'Viaje') question.innerHTML = travelQuestions[travelQuestions.length-1];
+		else if(data[0] == 'Cumpleaños') question.innerHTML = birthayQuestions[birthayQuestions.length-1];
+		else if(data[0] == 'Otro') question.innerHTML = otherQuestions[otherQuestions.length-1];
+		answer.value = data[data.length-1];
+		data.pop();
+	}
+
+	else if(question.innerHTML == comunQuestions[1]){
+		question.innerHTML = comunQuestions[0];
+		answer.value = data[data.length-1];
+		data.pop();
+		document.querySelector('.btn-right').innerHTML = 'Siguiente';
+	}
+
+	else{
+		questTipes.forEach((quests)=>{
+			for(let id in quests){
+				if(id > 0 && question.innerHTML == quests[id]){
+					question.innerHTML = quests[id-1];
+			    answer.value = data[data.length-1];
+			    data.pop();
+				}
+				else if(id == 0 && question.innerHTML == quests[id]){
+					answer.value = '';
+					answer.style.display = 'none';
+		      answer = document.querySelectorAll('.answer')[1];
+	        answer.style.display = 'flex';    
+	        question.innerHTML = '¿A que hora es el evento?';
+	        document.querySelector('.num1').innerHTML = data[data.length-1].split(':')[0];
+	        document.querySelector('.num2').innerHTML = data[data.length-1].split(':')[1];
+	        data.pop();
+				}
+			}
+		});
+	}
 }
+
 
 function addEventToStorage(event){
     let storedEventList = localStorage.getItem("eventList");

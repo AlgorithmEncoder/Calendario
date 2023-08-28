@@ -226,3 +226,10 @@ a {
 a:hover {
   color: #086;
 }
+
+
+.answer-camp b {
+	font-size: 18px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
