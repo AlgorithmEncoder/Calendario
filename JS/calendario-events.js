@@ -103,11 +103,16 @@ document.addEventListener('DOMContentLoaded', function (){
     eventList.innerHTML = '';
 
     if (events.length > 0){
-      events.forEach(function(event){
-        const listItem = document.createElement('li');
+      events.forEach(function(event,id){
+        const listItem = document.createElement('div');
         listItem.className = 'event-list-item';
         listItem.textContent = event.time + ' - ' + event.event;
+        let bin = document.createElement('div')
+        bin.className = 'bin';
+        listItem.appendChild(bin);
         eventList.appendChild(listItem);
+
+        bin.addEventListener('click',()=> deleteEvent(id,date));
      });
    }
     else{
@@ -153,6 +158,18 @@ document.addEventListener('DOMContentLoaded', function (){
     ];
     return monthNames[month];
  }
+
+  function deleteEvent(index,date){
+    console.log('a')
+    let storedEventList = localStorage.getItem("eventList");
+    let eventList = storedEventList ? JSON.parse(storedEventList) : [];
+
+    eventList.splice(index, 1); // Elimina el evento en el índice dado
+    localStorage.setItem("eventList", JSON.stringify(eventList));
+    showEventSection(date);
+  }
+
+
   showEventSection(new Date());
   updateCalendarHeader(currentMonth, currentYear);
 });
